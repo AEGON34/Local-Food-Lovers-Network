@@ -47,21 +47,21 @@ const NavBar = () => {
             tabIndex="-1"
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
+            <li className="text-cyan-950 ">
               <NavLink to={"/"}>
                 <GoHomeFill />
                 Home
               </NavLink>
             </li>
-            <li>
-              <NavLink to={"/all-models"}>
-                <IoLogoModelS /> All Models
+            <li className="text-cyan-950">
+              <NavLink to={"/all-items"}>
+                <IoLogoModelS /> All Items
               </NavLink>
             </li>
           </ul>
         </div>
         <Link to={"/"} className="flex items-center gap-1 text-xl font-bold">
-          <img className="w-[70px]" src="/logo.png" alt="" />
+          <img className="w-[70px]" src="/lo.png" alt="" />
           <h2 className="text-[22px] text-cyan-950 inline">
             Local Food 
           </h2>
@@ -76,13 +76,13 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li className="text-cyan-950">
-            <NavLink to={"/all-models"}>
-              <IoLogoModelS /> All Models
+            <NavLink to={"/all-items"}>
+              <IoLogoModelS /> All Items
             </NavLink>
           </li>
           <li className="text-cyan-950">
-            <NavLink to={"/add-model"}>
-              <ImBoxAdd /> Add model
+            <NavLink to={"/add-Review"}>
+              <ImBoxAdd /> Add Review
             </NavLink>
           </li>
           {/* 

@@ -5,13 +5,14 @@ import Profile from "../Pages/Profile/Profile";
 import Login from "../Pages/Auth/Login";
 import Register from "../Pages/Auth/Registration";
 import PrivateRoute from "./PrivateRoute";
-import ModelDetails from "../Pages/ModelDetails/ModelDetails";
-import UpdateModel from "../Pages/UpdateModel/UpdateModel";
 import MyModels from "../Pages/MyModels/MyModels";
 import MyDownloads from "../Pages/MyDownloads/MyDownloads";
 import ErrorPage from "../components/ErrorPage ";
 import AddReviews from "../Pages/AddReviews/AddReviews";
 import AllItems from "../Pages/AllItems/AllItems";
+import UpdateReview from "../Pages/UpdateReview/UpdateReview";
+import FoodDetails from "../Pages/FoodDetails/FoodDetails";
+import AllReviews from "../Pages/AllReviews";
 
 export const router = createBrowserRouter([
   {
@@ -41,18 +42,27 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/add-model",
+        path: "/all-reviews",
+        element: (
+          <PrivateRoute>
+           <AllReviews></AllReviews>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/add-Review",
         element: (
           <PrivateRoute>
            <AddReviews></AddReviews>
           </PrivateRoute>
         ),
+        loader:()=>fetch('http://localhost:3000/details')
       },
       {
-        path: "/model-details/:id",
+        path: "/item-details/:id",
         element: (
           <PrivateRoute>
-            <ModelDetails />
+            <FoodDetails />
           </PrivateRoute>
         ),
         loader:({params})=>fetch(`http://localhost:3000/details/${params.id}`)
@@ -77,13 +87,13 @@ export const router = createBrowserRouter([
       },
 
         {
-        path: "/update-model/:id",
+        path: "/update-review/:id",
         element: (
           <PrivateRoute>
-            <UpdateModel />
+            <UpdateReview></UpdateReview>
           </PrivateRoute>
         ),
-          loader: ({params}) => fetch(`https://3d-model-server.vercel.app/models/${params.id}`)
+          loader: ({params}) => fetch(`http://localhost:3000/details/${params.id}`)
       },
       {
         path: "/auth/login",

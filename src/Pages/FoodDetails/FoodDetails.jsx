@@ -2,7 +2,7 @@ import { Link, useLoaderData,  } from "react-router";
 // import Swal from "sweetalert2";
 
 
-const ModelDetails = () => {
+const FoodDetails = () => {
 
   const data=useLoaderData();
   
@@ -64,17 +64,6 @@ const ModelDetails = () => {
   //   });
   // };
 
-  // const handleDownload = () => {
-  //   const finalModel = {
-  //     name: model.name,
-  //     downloads: model.downloads,
-  //     created_by: model.created_by,
-  //     description: model.description,
-  //     thumbnail: model.thumbnail,
-  //     created_at: new Date(),
-  //     downloaded_by: user.email,
-  //   };
-
   //   fetch(`https://3d-model-server.vercel.app/downloads/${model._id}`, {
   //     method: "POST",
   //     headers: {
@@ -90,7 +79,7 @@ const ModelDetails = () => {
 
   //       alternative solution of realtime download count update
 
-  //       fetch(`https://3d-model-server.vercel.app/models/${id}`, {
+  //       fetch(`https://3d-model-server.vercel.app/models/${id}`,{
   //     headers: {
   //       authorization: `Bearer ${user.accessToken}`,
   //     },
@@ -146,19 +135,12 @@ const ModelDetails = () => {
 
             <div className="flex gap-3 mt-6">
               <Link
-                to={`/update-model/${data._id}`}
+                to={`/update-review/${data._id}`}
                 className="btn btn-primary rounded-full bg-linear-to-r from-pink-500 to-red-600 text-white border-0 hover:from-pink-600 hover:to-red-700"
               >
-                Update Model
+                Update Review
               </Link>
-              {/* <button
-                // onClick={handleDownload}
-                className="btn btn-secondary rounded-full"
-              >
-                Download
-              </button> */}
               <button
-                // onClick={handleDlete}
                 className="btn btn-outline rounded-full border-gray-300 hover:border-pink-500 hover:text-pink-600"
               >
                 Delete
@@ -171,4 +153,4 @@ const ModelDetails = () => {
   );
 };
 
-export default ModelDetails;
+export default FoodDetails;

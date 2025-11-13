@@ -1,17 +1,16 @@
-import { use } from "react";
-import { AuthContext } from "../../context/AuthContext";
 import toast from "react-hot-toast";
+import { useLoaderData } from "react-router";
+import { AuthContext } from "../../context/AuthContext";
+import { use } from "react";
 
-const AddReviews = () => {
-
-  const { user } = use(AuthContext)
-
-
+const UpdateReview = () => {
+  const data = useLoaderData();
+const {user}=use(AuthContext)
   const handleSubmit = (e) => {
-    e.preventDefault()
-
+    e.preventDefault();
+    
     const formData = {
-      food_name: e.target.name.value,
+     food_name: e.target.name.value,
       food_image: e.target.image.value,
       restaurant_name:e.target.restaurant.value,
       location: e.target.location.value,
@@ -19,39 +18,38 @@ const AddReviews = () => {
       review_text: e.target.review.value,
       date: new Date(),
       user: user.email
-    }
+    };
 
-    fetch('http://localhost:3000/details', {
-       method: "POST",
+    fetch(`http://localhost:3000/items/${data._id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData)
+      body: JSON.stringify(formData),
     })
-    .then(res => res.json())
-    .then(data=> {
-      toast.success("Successfully added!")
-      console.log(data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-   
-
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success("Successfully updated!");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
 
   return (
-    <div className="card border border-gray-200 bg-base-100 w-full max-w-md mx-auto shadow-2xl rounded-2xl">
+    <div className="card bg-base-100 w-full max-w-md mx-auto shadow-2xl rounded-2xl">
       <div className="card-body p-6 relative">
-        <h2 className="text-2xl font-bold text-center mb-6">Add New Review</h2>
+        <h2 className="text-2xl font-bold text-center mb-6">Update Review</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
-     
-          <div>
+          {/* Name Field */}
+         <div>
             <label className="label font-medium">Food Name</label>
             <input
               type="text"
               name="name"
+              defaultValue={data.food_name}
               required
               className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
               placeholder="Enter Food name"
@@ -59,22 +57,13 @@ const AddReviews = () => {
           </div>
 
           
-          <div>
-            <label className="label font-medium">Food Image</label>
-            <input
-              type="url"
-              name="image"
-              required
-              className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
-              placeholder="https://example.com/image.jpg"
-            />
-          </div>
 
                 <div>
             <label className="label font-medium">Restaurant  Name</label>
             <input
               type="text"
               name="restaurant"
+              defaultValue={data.restaurant_name}
               required
               className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
               placeholder=" Restaurant Name"
@@ -85,6 +74,7 @@ const AddReviews = () => {
             <input
               type="text"
               name="location"
+              defaultValue={data.location}
               required
               className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
               placeholder="Enter Location"
@@ -95,6 +85,7 @@ const AddReviews = () => {
             <input
               type="text"
               name="rating"
+              defaultValue={data.star_rating}
               required
               className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
               placeholder="Enter Rating(1-5)"
@@ -106,17 +97,34 @@ const AddReviews = () => {
             <label className="label font-medium">Add Review</label>
             <textarea
               name="review"
+              defaultValue={data.review_text}
               required
               rows="3"
              className="textarea w-full rounded-2xl focus:border-0 focus:outline-gray-200 h-[250px]"
               placeholder="Tell how do you feel about the food"
             ></textarea>
           </div>
-                <button
+
+    
+          <div>
+            <label className="label font-medium">Food Image</label>
+            <input
+              type="url"
+              name="image"
+              defaultValue={data.food_image}
+              required
+              className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
+              placeholder="https://example.com/image.jpg"
+            />
+          </div>
+
+          {/* Submit Button */}
+          <button
+       
             type="submit"
             className="btn w-full text-white mt-6 rounded-full bg-linear-to-r from-pink-500 to-red-600 hover:from-pink-600 hover:to-red-700"
           >
-            Add Reviews
+            Update Review
           </button>
         </form>
       </div>
@@ -124,4 +132,4 @@ const AddReviews = () => {
   );
 };
 
-export default AddReviews;
+export default UpdateReview;
