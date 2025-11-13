@@ -1,9 +1,9 @@
-import { Link, useLoaderData,  } from "react-router";
+import { Link, useLoaderData, useNavigate,  } from "react-router";
 import Swal from "sweetalert2";
 
 
 const FoodDetails = () => {
-
+  const navigate=useNavigate()
   const data=useLoaderData();
   const handleDelete=()=>{
     Swal.fire({
@@ -25,7 +25,9 @@ const FoodDetails = () => {
     })
     .then(res => res.json())
     .then(data=> {
+      navigate('/all-items')
       toast.success("Successfully added!")
+      
       Swal.fire({
       title: "Deleted!",
       text: "Your file has been deleted.",
