@@ -1,9 +1,22 @@
-import React from 'react'
+import { useLoaderData } from "react-router";
+import { ReviewCard } from "../components/ReviewCard";
+
 
 const AllReviews = () => {
-  return (
-    <div>AllReviews</div>
-  )
-}
+  const loadedReviews = useLoaderData();
+  const mdata=loadedReviews
 
-export default AllReviews
+  return (
+    <div>
+      <div className="text-2xl text-center font-bold">All Reviews</div>
+      <p className="text-center">See what people are saying about the food.</p>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        {loadedReviews.map((review) => (
+          <ReviewCard key={review._id} review={review} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default AllReviews;

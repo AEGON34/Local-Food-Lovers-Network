@@ -1,10 +1,8 @@
 
 const Banner = () => {
   return (
-    <div>
-
-
-      <div className="carousel  absolute w-full pr-[255px] top-0 mx-auto container">
+    <div className=" top-0 overflow-hidden z-500px">
+      <div className="carousel  w-full container">
         <div id="slide1" className="carousel-item relative w-full">
           <img
             src="b2.jpg"

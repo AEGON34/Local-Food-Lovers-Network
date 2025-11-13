@@ -5,7 +5,7 @@ import Profile from "../Pages/Profile/Profile";
 import Login from "../Pages/Auth/Login";
 import Register from "../Pages/Auth/Registration";
 import PrivateRoute from "./PrivateRoute";
-import MyModels from "../Pages/MyModels/MyModels";
+import MyModels from "../Pages/MyReviews/MyReviews";
 import MyDownloads from "../Pages/MyDownloads/MyDownloads";
 import ErrorPage from "../components/ErrorPage ";
 import AddReviews from "../Pages/AddReviews/AddReviews";
@@ -13,6 +13,7 @@ import AllItems from "../Pages/AllItems/AllItems";
 import UpdateReview from "../Pages/UpdateReview/UpdateReview";
 import FoodDetails from "../Pages/FoodDetails/FoodDetails";
 import AllReviews from "../Pages/AllReviews";
+import MyReviews from "../Pages/MyReviews/MyReviews";
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +49,7 @@ export const router = createBrowserRouter([
            <AllReviews></AllReviews>
           </PrivateRoute>
         ),
+        loader: () => fetch('http://localhost:3000/details')
       },
       {
         path: "/add-Review",
@@ -56,7 +58,6 @@ export const router = createBrowserRouter([
            <AddReviews></AddReviews>
           </PrivateRoute>
         ),
-        loader:()=>fetch('http://localhost:3000/details')
       },
       {
         path: "/item-details/:id",
@@ -69,10 +70,10 @@ export const router = createBrowserRouter([
       },
 
        {
-        path: "/my-models",
+        path: "/my-reviews",
         element: (
           <PrivateRoute>
-            <MyModels />
+            <MyReviews></MyReviews>
           </PrivateRoute>
         ),
       },

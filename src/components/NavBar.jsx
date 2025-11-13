@@ -23,7 +23,8 @@ const NavBar = () => {
     setTheme(checked ? "dark" : "light")
   }
   return (
-    <div className="navbar py-0 min-h-0 z-1 shadow-sm rounded-full glass-card max-w-7xl">
+    <div className="
+     navbar py-0 min-h-0 z-1 shadow-sm rounded-full bg-amber-50 max-w-7xl">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -58,6 +59,16 @@ const NavBar = () => {
                 <IoLogoModelS /> All Items
               </NavLink>
             </li>
+             <li className="text-cyan-950">
+            <NavLink to={"/add-Review"}>
+              <ImBoxAdd /> Add Review
+            </NavLink>
+          </li>
+          <li className="text-cyan-950">
+            <NavLink to={"/all-reviews"}>
+              <ImBoxAdd /> All Review
+            </NavLink>
+          </li>
           </ul>
         </div>
         <Link to={"/"} className="flex items-center gap-1 text-xl font-bold">
@@ -83,6 +94,11 @@ const NavBar = () => {
           <li className="text-cyan-950">
             <NavLink to={"/add-Review"}>
               <ImBoxAdd /> Add Review
+            </NavLink>
+          </li>
+          <li className="text-cyan-950">
+            <NavLink to={"/all-reviews"}>
+              <ImBoxAdd /> All Review
             </NavLink>
           </li>
           {/* 
@@ -124,8 +140,8 @@ const NavBar = () => {
               </li>
 
               <li>
-                <Link to={"/my-models"}>
-                  My Models
+                <Link to={"/my-reviews"}>
+                  MY Reviews
                 </Link>
               </li>
 

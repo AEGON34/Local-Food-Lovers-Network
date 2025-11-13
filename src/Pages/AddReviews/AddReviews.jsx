@@ -44,7 +44,7 @@ const AddReviews = () => {
   return (
     <div className="card border border-gray-200 bg-base-100 w-full max-w-md mx-auto shadow-2xl rounded-2xl">
       <div className="card-body p-6 relative">
-        <h2 className="text-2xl font-bold text-center mb-6">Add New Review</h2>
+        <h2 className="text-2xl font-bold text-cyan-900 text-center mb-6">Add New Review</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
      
           <div>
@@ -103,7 +103,7 @@ const AddReviews = () => {
 
        
           <div>
-            <label className="label font-medium">Add Review</label>
+            <label className="label  font-medium">Add Review</label>
             <textarea
               name="review"
               required
@@ -114,7 +114,7 @@ const AddReviews = () => {
           </div>
                 <button
             type="submit"
-            className="btn w-full text-white mt-6 rounded-full bg-linear-to-r from-pink-500 to-red-600 hover:from-pink-600 hover:to-red-700"
+            className="btn w-full text-white mt-6 rounded-full bg-linear-to-r from-cyan-900 to-indigo-200 hover:from-cyan-900 hover:to-indigo-400"
           >
             Add Reviews
           </button>

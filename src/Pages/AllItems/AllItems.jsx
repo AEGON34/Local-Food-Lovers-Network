@@ -13,7 +13,7 @@ const AllItems = () => {
     console.log(search_text)
     setLoading(true)
 
-    fetch(`http://localhost:3000/details/search?search=${search_text}`)
+    fetch(`http://localhost:3000/search?search=${search_text}`)
     .then(res=> res.json())
     .then(data=> {
       console.log(data)
@@ -29,8 +29,8 @@ const AllItems = () => {
 
   return (
     <div>
-      <div className="text-2xl text-center font-bold"> All Models</div>
-      <p className=" text-center ">Explore 3d models.</p>
+      <div className="text-2xl text-cyan-900 text-center font-bold"> All Foods</div>
+      <p className=" text-center text-cyan-800">Explore Local Foods.</p>
      
      <form onSubmit={handleSearch} className=" mt-5 mb-10 flex gap-2 justify-center">
        <label className="input rounded-full ">
@@ -52,7 +52,7 @@ const AllItems = () => {
         </svg>
         <input name="search" type="search"  placeholder="Search" />
       </label>
-      <button className="btn btn-secondary  rounded-full">{loading ? "Searching...." : "Search"}</button>
+      <button className="btn text-white bg-linear-to-r from-cyan-900 to-indigo-200 hover:from-cyan-900 hover:to-indigo-400  rounded-full">{loading ? "Searching...." : "Search"}</button>
      </form>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">

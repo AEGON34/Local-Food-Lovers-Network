@@ -10,7 +10,7 @@ const Home = () => {
 
             
 
-            <div className="text-center text-4xl font-bold mt-10 text-cyan-900 pt-[160px] md:pt-[360px] lg:pt-[700px]">Latest Food</div>
+            <div className="text-center text-4xl font-bold  text-cyan-900 mt-[20px] md:pt-[30px] lg:pt-[40px]">Latest Food</div>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-10">
                 {data.map(item => <FoodCard key={item._id} item={item} />)}

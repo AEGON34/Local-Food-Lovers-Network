@@ -16,7 +16,7 @@ export const FoodCard = ({ item }) => {
 
         <div className="flex justify-between items-center">
           <div className="badge text-xs badge-xs font-semibold bg-cyan-500 py-2.5 rounded-full">{restaurant_name}</div>
-          <div className="font-semibold">Rating : {star_rating}</div>
+          <div className="font-semibold">Rating :⭐ {star_rating}</div>
         </div>
         <div className="text-xs text-cyan-600 ">{location}</div>
         <p className="line-clamp-1">

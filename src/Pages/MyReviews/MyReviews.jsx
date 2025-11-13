@@ -1,22 +1,17 @@
 import { use, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { FoodCard } from "../../components/FoodCard";
-const MyModels = () => {
+const MyReviews = () => {
     const {user} = use(AuthContext)
-    const [models, setModels] = useState([])
+    const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(()=> {
 
-        fetch(`https://3d-model-server.vercel.app/my-models?email=${user.email}`, {
-            headers: {
-                authorization: `Bearer ${user.accessToken}`
-            }
-        })
+        fetch(`http://localhost:3000/my-reviews?email=${user.email}`)
         .then(res=> res.json())
         .then(data=> {
-            
-            setModels(data)
+            setItems(data)
             setLoading(false)
         })
 
@@ -30,11 +25,11 @@ const MyModels = () => {
     return (
         <div>
               <div className="grid grid-cols-3 lg:grid-cols-4 gap-3">
-                     {models.map(model => <FoodCard key={model._id} model={model}/>)}
+                     {items.map(item => <FoodCard key={item._id} item={item}/>)}
                   </div>
             
         </div>
     );
 };
 
-export default MyModels;
+export default MyReviews;
