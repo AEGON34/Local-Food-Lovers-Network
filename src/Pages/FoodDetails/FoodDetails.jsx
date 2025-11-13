@@ -1,11 +1,47 @@
 import { Link, useLoaderData,  } from "react-router";
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 
 
 const FoodDetails = () => {
 
   const data=useLoaderData();
-  
+  const handleDelete=()=>{
+    Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+
+    fetch(`http://localhost:3000/details/${data._id}`, {
+       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then(res => res.json())
+    .then(data=> {
+      toast.success("Successfully added!")
+      Swal.fire({
+      title: "Deleted!",
+      text: "Your file has been deleted.",
+      icon: "success"
+    });
+      console.log(data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+   
+
+    
+  }
+});
+  }
   
   return (
     <div className="max-w-5xl mx-auto p-4 md:p-6 lg:p-8">
@@ -47,6 +83,7 @@ const FoodDetails = () => {
               </Link>
               <button
                 className="btn btn-outline rounded-full border-indigo-300 hover:border-indigo-500 text-cyan-900"
+                onClick={handleDelete}
               >
                 Delete
               </button>
