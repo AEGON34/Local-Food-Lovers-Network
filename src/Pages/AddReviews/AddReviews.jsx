@@ -2,7 +2,7 @@ import { use } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import toast from "react-hot-toast";
 
-const AddModal = () => {
+const AddReviews = () => {
 
   const { user } = use(AuthContext)
 
@@ -84,7 +84,7 @@ const AddModal = () => {
 
           {/* Description Textarea */}
           <div>
-            <label className="label font-medium">Description</label>
+            <label className="label font-medium">Add Review</label>
             <textarea
               name="description"
               required
@@ -96,7 +96,7 @@ const AddModal = () => {
 
           {/* Thumbnail URL */}
           <div>
-            <label className="label font-medium">Thumbnail URL</label>
+            <label className="label font-medium">Food Image</label>
             <input
               type="url"
               name="thumbnail"
@@ -111,7 +111,7 @@ const AddModal = () => {
             type="submit"
             className="btn w-full text-white mt-6 rounded-full bg-linear-to-r from-pink-500 to-red-600 hover:from-pink-600 hover:to-red-700"
           >
-            Add Model
+            Add Reviews
           </button>
         </form>
       </div>
@@ -119,4 +119,4 @@ const AddModal = () => {
   );
 };
 
-export default AddModal;
+export default AddReviews;

@@ -1,17 +1,17 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../layout/MainLayout";
 import Home from "../Pages/Home/Home";
-import AllModels from "../Pages/AllModels/AllModels";
 import Profile from "../Pages/Profile/Profile";
 import Login from "../Pages/Auth/Login";
 import Register from "../Pages/Auth/Registration";
 import PrivateRoute from "./PrivateRoute";
-import AddModel from "../Pages/AddModel/AddModel";
 import ModelDetails from "../Pages/ModelDetails/ModelDetails";
 import UpdateModel from "../Pages/UpdateModel/UpdateModel";
 import MyModels from "../Pages/MyModels/MyModels";
 import MyDownloads from "../Pages/MyDownloads/MyDownloads";
 import ErrorPage from "../components/ErrorPage ";
+import AddReviews from "../Pages/AddReviews/AddReviews";
+import AllItems from "../Pages/AllItems/AllItems";
 
 export const router = createBrowserRouter([
   {
@@ -28,8 +28,8 @@ export const router = createBrowserRouter([
         element: <ErrorPage></ErrorPage>,
       },
       {
-        path: "/all-models",
-        element: <AllModels />,
+        path: "/all-items",
+        element: <AllItems></AllItems>,
         loader: () => fetch('http://localhost:3000/details')
       },
       {
@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
         path: "/add-model",
         element: (
           <PrivateRoute>
-            <AddModel />
+           <AddReviews></AddReviews>
           </PrivateRoute>
         ),
       },

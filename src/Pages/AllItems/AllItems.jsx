@@ -1,8 +1,8 @@
 import { useLoaderData } from "react-router";
-import { ModelCard } from "../../components/ModelCard";
+import { FoodCard } from "../../components/FoodCard";
 import { useState } from "react";
 
-const AllModels = () => {
+const AllItems = () => {
   const data = useLoaderData();
   const [items, setItems] = useState(data)
   const [loading, setLoading] = useState(false)
@@ -57,11 +57,11 @@ const AllModels = () => {
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {items.map((item) => (
-          <ModelCard key={item._id} item={item} />
+          <FoodCard key={item._id} item={item} />
         ))}
       </div>
     </div>
   );
 };
 
-export default AllModels;
+export default AllItems;

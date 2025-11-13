@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-export const ModelCard = ({item}) => {
+export const FoodCard = ({item}) => {
     const {food_name, food_image, restaurant_name, review_text, _id, location} = item
   return (
     <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">

@@ -3,7 +3,6 @@ import { IoLogoModelS } from "react-icons/io";
 import { GoHomeFill } from "react-icons/go";
 import { IoLogIn, IoLogOut } from "react-icons/io5";
 import { FaGear, FaUser } from "react-icons/fa6";
-import { LuRotate3D } from "react-icons/lu";
 import { ImBoxAdd } from "react-icons/im";
 import { use, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
@@ -15,13 +14,13 @@ const NavBar = () => {
 
   useEffect(() => {
     const html = document.querySelector('html')
-     html.setAttribute("data-theme", theme)
-     localStorage.setItem("theme", theme)
+    html.setAttribute("data-theme", theme)
+    localStorage.setItem("theme", theme)
   }, [theme])
 
 
   const handleTheme = (checked) => {
-    setTheme(checked ? "dark": "light")
+    setTheme(checked ? "dark" : "light")
   }
   return (
     <div className="navbar py-0 min-h-0 z-1 shadow-sm rounded-full glass-card max-w-7xl">
@@ -56,34 +55,37 @@ const NavBar = () => {
             </li>
             <li>
               <NavLink to={"/all-models"}>
-                <IoLogoModelS /> Show All
+                <IoLogoModelS /> All Models
               </NavLink>
             </li>
           </ul>
         </div>
         <Link to={"/"} className="flex items-center gap-1 text-xl font-bold">
-          <LuRotate3D /> 3D Models Hub
+          <img className="w-[70px]" src="/logo.png" alt="" />
+          <h2 className="text-[22px] text-cyan-950 inline">
+            Local Food 
+          </h2>
         </Link>
       </div>
       <div className="navbar-center hidden md:flex">
-        <ul className="menu menu-horizontal px-1 gap-10">
-          <li>
+        <ul className="menu menu-horizontal px-1 gap-5">
+          <li className="text-cyan-950 ">
             <NavLink to={"/"}>
               <GoHomeFill />
               Home
             </NavLink>
           </li>
-          <li>
+          <li className="text-cyan-950">
             <NavLink to={"/all-models"}>
-              <IoLogoModelS /> Show All
+              <IoLogoModelS /> All Models
             </NavLink>
           </li>
-          <li>
+          <li className="text-cyan-950">
             <NavLink to={"/add-model"}>
-             <ImBoxAdd /> Add model
+              <ImBoxAdd /> Add model
             </NavLink>
           </li>
-{/* 
+          {/* 
           <li>
             <NavLink to={"/profile"}>
               <FaUser /> Profile
@@ -129,16 +131,16 @@ const NavBar = () => {
 
               <li >
                 <Link to={"/my-downloads"}>
-                 My Downloads
+                  My Downloads
                 </Link>
               </li>
 
               <input
-           onChange={(e)=> handleTheme(e.target.checked)}
-           type="checkbox"
-           defaultChecked={localStorage.getItem('theme') === "dark"}
-           className="toggle"/>
-              
+                onChange={(e) => handleTheme(e.target.checked)}
+                type="checkbox"
+                defaultChecked={localStorage.getItem('theme') === "dark"}
+                className="toggle" />
+
               <li>
                 <a>
                   {" "}
@@ -148,7 +150,7 @@ const NavBar = () => {
               <li>
                 <button
                   onClick={signOutUser}
-                  className="btn btn-xs text-left bg-linear-to-r from-pink-500 to-red-500 text-white"
+                  className="btn btn-xs text-left  bg-linear-to-r from-cyan-900 to-indigo-200 text-white"
                 >
                   <IoLogOut /> Logout
                 </button>
@@ -158,7 +160,7 @@ const NavBar = () => {
         ) : (
           <Link
             to={"/auth/login"}
-            className="btn rounded-full border-gray-300  btn-sm bg-linear-to-r from-pink-500 to-red-500 text-white"
+            className="btn rounded-full border-gray-300  btn-sm bg-linear-to-r from-cyan-900 to-indigo-200 text-white"
           >
             {" "}
             <IoLogIn /> Login
